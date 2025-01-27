@@ -37,4 +37,4 @@ def coin_list_with_market_data():
     return json.dumps(response.json()[:5])
 
 
-print(coin_list_with_market_data())
+print(get_token_price(token_id))
