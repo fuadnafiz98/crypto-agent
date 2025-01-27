@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 knowledge_base = JSONKnowledgeBase(
-    path="./data/data.json",
+    path="./data/list.json",
     # Table name: ai.json_documents
     vector_db=PgVector(
         table_name="json_documents",
