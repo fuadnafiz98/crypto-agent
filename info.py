@@ -25,15 +25,16 @@ token_id = "bitcoin"  # Replace with the token ID (e.g., ethereum, cardano)
 currency = "usd"  # Replace with your desired currency
 
 
-def coin_list_with_market_data(currency: str):
+# Define the tool function
+def coin_list_with_market_data():
     url = "https://api.coingecko.com/api/v3/coins/markets"
-
-    params = {"vs_currency": currency}
+    params = {"vs_currency": "usd"}
     headers = {"accept": "application/json"}
-
     response = requests.get(url, headers=headers, params=params)
+    print(response.status_code)
 
-    print(json.dumps(response.json()[:5]))
+    # Return top 5 coins with market data
+    return json.dumps(response.json()[:5])
 
 
-coin_list_with_market_data("usd")
+print(coin_list_with_market_data())
