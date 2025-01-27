@@ -1,12 +1,10 @@
 # AI Agents with Phidata
 
-
-## Test 1 
+## Test 1
 
 code: web-search.py
 
 output:
-
 
 ```bash
 
@@ -139,3 +137,83 @@ output:
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 ```
+
+Test 3 with OpenAI
+
+┏━ Message ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ ┃
+┃ What is the best coin to invest in at this moment, and which market should I target? ┃
+┃ ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+┏━ Response (18.3s) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ ┃
+┃ Running: ┃
+┃ ┃
+┃ • coin_list_with_market_data() ┃
+┃ ┃
+┃ Based on the current market data trends, here are some insights on the best coins to consider for investment and their target markets: ┃
+┃ ┃
+┃ 1. Bitcoin (BTC) ┃
+┃ ┃
+┃ 🌆 Bitcoin ┃
+┃ ┃
+┃ • Current Price: $99,268 ┃
+┃ • Market Cap: $1,968,332,125,075 ┃
+┃ • Market Cap Rank: 1 ┃
+┃ • 24h Price Change: -5.17% ┃
+┃ • ATH (All Time High): $108,786 ┃
+┃ ┃
+┃ 2. Ethereum (ETH) ┃
+┃ ┃
+┃ 🌆 Ethereum ┃
+┃ ┃
+┃ • Current Price: $3,073.99 ┃
+┃ • Market Cap: $370,740,093,125 ┃
+┃ • Market Cap Rank: 2 ┃
+┃ • 24h Price Change: -6.88% ┃
+┃ • ATH: $4,878.26 ┃
+┃ ┃
+┃ 3. XRP (XRP) ┃
+┃ ┃
+┃ 🌆 XRP ┃
+┃ ┃
+┃ • Current Price: $2.82 ┃
+┃ • Market Cap: $162,532,499,995 ┃
+┃ • Market Cap Rank: 3 ┃
+┃ • 24h Price Change: -9.65% ┃
+┃ • ATH: $3.4 ┃
+┃ ┃
+┃ 4. Tether (USDT) ┃
+┃ ┃
+┃ 🌆 Tether ┃
+┃ ┃
+┃ • Current Price: $0.99962 ┃
+┃ • Market Cap: $139,277,088,502 ┃
+┃ • Market Cap Rank: 4 ┃
+┃ • 24h Price Change: -0.03% ┃
+┃ ┃
+┃ 5. Solana (SOL) ┃
+┃ ┃
+┃ 🌆 Solana ┃
+┃ ┃
+┃ • Current Price: $225.83 ┃
+┃ • Market Cap: $110,038,433,809 ┃
+┃ • Market Cap Rank: 5 ┃
+┃ • 24h Price Change: -11.52% ┃
+┃ • ATH: $293.31 ┃
+┃ ┃
+┃ Recommendations ┃
+┃ ┃
+┃ • Best Coin for Potential Growth: Ethereum (ETH) has historically provided substantial returns and remains a strong contender in the smart contract ┃
+┃ space. ┃
+┃ • Best Stable Coin for Risk-averse Investors: Tether (USDT) is the go-to for holding value with minimal risk if you're uncertain about market ┃
+┃ volatility. ┃
+┃ • Market to Target: Consider targeting decentralized finance (DeFi) sectors where Ethereum and Solana are increasingly making waves, as well as ┃
+┃ payment solutions sites where XRP is gaining traction. ┃
+┃ ┃
+┃ Conclusion ┃
+┃ ┃
+┃ Investment decisions should be based on both market research and personal tolerance for risk. Analyze additional factors such as market trends, ┃
+┃ potential regulatory changes, and technological advancements before making your investment. ┃
+┃ ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
