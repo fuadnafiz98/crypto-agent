@@ -1,7 +1,7 @@
 from phi.agent import Agent, RunResponse
 from phi.knowledge.json import JSONKnowledgeBase
 from phi.vectordb.pgvector import PgVector
-from flask import Flask, Response
+from flask import Flask, Response, request
 
 from dotenv import load_dotenv
 
@@ -30,7 +30,7 @@ agent = Agent(
     # tools=[CoinGeckoToolkit()],
     tools=[CoinGeckoTools()],
     show_tool_calls=True,
-    debug_mode=True,
+    # debug_mode=True,
     instructions=[
         "First you have to find the correct `id` of the coin user is trying to search",
         "look for unnecessay words that are part of the question and not part of the coin name, discard those words and find the accurate word for the coin",
@@ -75,16 +75,26 @@ def index():
 
 @app.route("/stream")
 def home():
-    response: RunResponse = (
-        agent.run(
-            "What is the price of Pepe in THB?",
-            stream=False,
-        ),
-    )
-    (run_response,) = response
-    print(run_response)
+    question = request.args.get("question")
 
-    return Response(run_response.content, content_type="text/plain")
+    def generate():
+        response: RunResponse = (
+            agent.run(
+                question,
+                stream=True,
+            ),
+        )
+        (gen,) = response
+
+        while True:
+            try:
+                response = next(gen)
+                yield str(response.content)
+
+            except StopIteration:
+                break
+
+    return generate(), {"Content-Type": "text/plain"}
 
 
 if __name__ == "__main__":
