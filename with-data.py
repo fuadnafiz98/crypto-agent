@@ -1,6 +1,7 @@
-from phi.agent import Agent
+from phi.agent import Agent, RunResponse
 from phi.knowledge.json import JSONKnowledgeBase
 from phi.vectordb.pgvector import PgVector
+from flask import Flask, Response
 
 from dotenv import load_dotenv
 
@@ -56,6 +57,35 @@ agent.knowledge.load(recreate=False)
 # agent.print_response("Tell me the market cap for bitcoin", stream=True)
 # agent.print_response("Tell me about bitcoin", stream=True)
 # agent.print_response("Tell me about pepe coin", stream=True)
-agent.print_response(
-    "Tell me about latest trump coin that is created by Donuld trump", stream=True
-)
+# agent.print_response(
+# "Tell me about latest trump coin that is created by Donuld trump", stream=True
+# )
+
+# flask app
+app = Flask(__name__)
+
+
+@app.route("/")
+def index():
+    return Response(
+        "Hello",
+        content_type="text/html",
+    )
+
+
+@app.route("/stream")
+def home():
+    response: RunResponse = (
+        agent.run(
+            "What is the price of Pepe in THB?",
+            stream=False,
+        ),
+    )
+    (run_response,) = response
+    print(run_response)
+
+    return Response(run_response.content, content_type="text/plain")
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
