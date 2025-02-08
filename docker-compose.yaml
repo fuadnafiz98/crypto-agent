@@ -1,0 +1,28 @@
+services:
+  db:
+    build:
+      context: ./docker
+      dockerfile: pgvector.Dockerfile
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "5050:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=pgadmin@pgadmin.org
+      - PGADMIN_DEFAULT_PASSWORD=pgadmin
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge

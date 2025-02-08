@@ -16,7 +16,7 @@ knowledge_base = JSONKnowledgeBase(
     # Table name: ai.json_documents
     vector_db=PgVector(
         table_name="json_documents",
-        db_url="postgresql+psycopg://ai:ai@localhost:5532/ai",
+        db_url="postgresql+psycopg://postgres:postgres@localhost:5432/ai",
     ),
     num_documents=10,
 )
@@ -56,46 +56,46 @@ agent.knowledge.load(recreate=False)
 # agent.print_response("What is the price of Bitcoin in USD?", stream=True)
 # agent.print_response("Tell me the market cap for bitcoin", stream=True)
 # agent.print_response("Tell me about bitcoin", stream=True)
-# agent.print_response("Tell me about pepe coin", stream=True)
+agent.print_response("Tell me about o mee coin", stream=True)
 # agent.print_response(
 # "Tell me about latest trump coin that is created by Donuld trump", stream=True
 # )
 
 # flask app
-app = Flask(__name__)
-
-
-@app.route("/")
-def index():
-    return Response(
-        "Hello",
-        content_type="text/html",
-    )
-
-
-@app.route("/stream")
-def home():
-    question = request.args.get("question")
-
-    def generate():
-        response: RunResponse = (
-            agent.run(
-                question,
-                stream=True,
-            ),
-        )
-        (gen,) = response
-
-        while True:
-            try:
-                response = next(gen)
-                yield str(response.content)
-
-            except StopIteration:
-                break
-
-    return generate(), {"Content-Type": "text/plain"}
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+# app = Flask(__name__)
+#
+#
+# @app.route("/")
+# def index():
+#    return Response(
+#        "Hello",
+#        content_type="text/html",
+#    )
+#
+#
+# @app.route("/stream")
+# def home():
+#    question = request.args.get("question")
+#
+#    def generate():
+#        response: RunResponse = (
+#            agent.run(
+#                question,
+#                stream=True,
+#            ),
+#        )
+#        (gen,) = response
+#
+#        while True:
+#            try:
+#                response = next(gen)
+#                yield str(response.content)
+#
+#            except StopIteration:
+#                break
+#
+#    return generate(), {"Content-Type": "text/plain"}
+#
+#
+# if __name__ == "__main__":
+#    app.run(debug=True)
